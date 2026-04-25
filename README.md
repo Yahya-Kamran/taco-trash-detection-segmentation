@@ -1,32 +1,38 @@
-# Trash Detection and Segmentation using YOLO and U-Net
+# ♻️ Trash Detection & Segmentation (TACO)
 
-## Overview
-This project applies computer vision techniques to the TACO dataset for:
+[![Framework](https://img.shields.io/badge/Framework-PyTorch-red.svg)](#)
+[![Model](https://img.shields.io/badge/Model-YOLOv8_%7C_U--Net-green.svg)](#)
+[![Dataset](https://img.shields.io/badge/Dataset-TACO-blue.svg)](#)
 
-- Object detection using YOLO
-- Image segmentation using U-Net
+> A dual-pipeline computer vision system designed to detect and segment environmental waste in the wild.
 
-The goal is to explore detection and segmentation approaches for real-world trash recognition.
+## 📖 Overview
+Tackling the global waste problem requires advanced automation. This project leverages the **TACO (Trash Annotations in Context)** dataset to build two distinct vision architectures: 
+1. **YOLOv8** for high-speed, real-time object detection (bounding boxes).
+2. **U-Net** for highly precise, pixel-wise instance segmentation (masks).
 
-## Components
+## ✨ Key Features
+- **Dual Architecture Implementation**: Provides both detection and segmentation pipelines for comparison.
+- **Custom Evaluation Metrics**: Includes a dedicated `cv_utils.py` module for calculating Intersection over Union (IoU) and mean Average Precision (mAP).
+- **Data Augmentation**: Robust preprocessing to handle the high variance in real-world trash photos (lighting, occlusion).
+- **Visual Analytics**: Side-by-side comparative plotting of Ground Truth vs. Predicted Masks.
 
-### YOLO Detection
-- Converts dataset annotations into YOLO format
-- Trains an object detection model
-- Evaluates detection performance
+## 📁 Repository Structure
+```text
+.
+├── taco_yolo_unet_pipeline.ipynb   # Main pipeline notebook (Training & Inference)
+├── cv_utils.py                     # Custom metrics and visualization utilities
+├── requirements.txt                # Python dependencies
+└── README.md                       # Project documentation
+```
 
-### U-Net Segmentation
-- Performs pixel-wise segmentation
-- Trains a U-Net model on trash masks
-- Evaluates segmentation results
-
-## Dataset
-- TACO (Trash Annotations in Context)
-
-## Technologies Used
-- Python
-- PyTorch
-- Ultralytics YOLO
-- OpenCV
-- NumPy
-- Matplotlib
+## 🚀 Setup & Usage
+1. Clone the repository and navigate to the directory.
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Launch Jupyter Notebook or Jupyter Lab to explore the pipeline:
+   ```bash
+   jupyter notebook taco_yolo_unet_pipeline.ipynb
+   ```
